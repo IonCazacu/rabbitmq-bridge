@@ -85,7 +85,7 @@ internal class
         // Gets the channel on which the message was delivered.
         var consumingChannel = ((AsyncEventingBasicConsumer)ch).Channel;
 
-        IChannel producingChannel = null;
+        IChannel? producingChannel = null;
 
         try
         {
@@ -134,7 +134,7 @@ internal class
         }
     }
     
-    private async Task RejectMessage(ulong deliveryTag, IChannel consumeChannel, IChannel scopeChannel)
+    private async Task RejectMessage(ulong deliveryTag, IChannel consumeChannel, IChannel? scopeChannel)
     {
         try
         {
@@ -157,7 +157,7 @@ internal class
         }
     }
 
-    private static TQueueMessage DeserializeMessage(byte[] message)
+    private static TQueueMessage? DeserializeMessage(byte[] message)
     {
         var stringMessage = Encoding.UTF8.GetString(message);
         return JsonSerializer.Deserialize<TQueueMessage>(stringMessage);

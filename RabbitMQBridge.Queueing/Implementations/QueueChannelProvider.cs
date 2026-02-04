@@ -8,7 +8,7 @@ internal class QueueChannelProvider<TQueueMessage> : IQueueChannelProvider<TQueu
     where TQueueMessage : IQueueMessage
 {
     private readonly IChannelProvider _channelProvider;
-    private IChannel _channel;
+    private IChannel? _channel;
     private readonly string _queueName;
 
     public QueueChannelProvider(IChannelProvider channelProvider)
